@@ -9,15 +9,15 @@ function chicagoRP.DrawOutlinedGradientRect(panel, firstcolor, secondcolor, thic
     surface.SetMaterial(gradientLeftMat)
     surface.DrawTexturedRectUV(0, 0, w, thickness, 0, 0, 1, 0) -- top
     surface.DrawTexturedRectUV(0, h - thickness, w, thickness, 0, 1, 1, 1) -- bottom
-    surface.DrawTexturedRectUV(0, 0, thickness, h, 0, 0, 0, 1) -- left
-    surface.DrawTexturedRectUV(w - thickness, 0, thickness, h, 1, 0, 1, 1) -- right
+    surface.DrawTexturedRectUV(0, 0 + thickness, thickness, h - thickness, 0, 0.1, 0, 1) -- left
+    surface.DrawTexturedRectUV(w - thickness, 0 + thickness, thickness, h - thickness, 1, 0.1, 1, 1) -- right
 
     surface.SetDrawColor(secondcolor:Unpack())
     surface.SetMaterial(gradientRightMat)
     surface.DrawTexturedRectUV(0, 0, w, thickness, 0, 0, 1, 0) -- top
     surface.DrawTexturedRectUV(0, h - thickness, w, thickness, 0, 1, 1, 1) -- bottom
-    surface.DrawTexturedRectUV(0, 0, thickness, h, 0, 0, 0, 1) -- left
-    surface.DrawTexturedRectUV(w - thickness, 0, thickness, h, 1, 0, 1, 1) -- right
+    surface.DrawTexturedRectUV(0, 0 + thickness, thickness, h - thickness, 0, 0, 0, 1) -- left
+    surface.DrawTexturedRectUV(w - thickness, 0 + thickness, thickness, h - thickness, 1, 0.1, 1, 1) -- right
 end
 
 print("gradient loaded")
