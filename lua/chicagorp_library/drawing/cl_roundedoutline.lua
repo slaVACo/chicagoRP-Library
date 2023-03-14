@@ -17,11 +17,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 local roundedOutlineMat = surface.GetTextureID("vgui/white")
 local roundedBoxCache = {}
+local roundedOutlineCache = {}
 
-function chicagoRP.DrawOutlinedRoundedBox(borderSize, x, y, w, h, col, thickness) -- credit to TomDotBat, lawfully used thanks to GPL 3.0 license
+function chicagoRP.DrawOutlinedRoundedBox(borderSize, x, y, w, h, col, outlinecol, thickness, outlinemat) -- written by Tom "TomDotBat" O'Sullivan
     thickness = thickness or 1
-
-    surface.SetDrawColor(col.r, col.g, col.b, col.a)
 
     if borderSize <= 0 then
         return
@@ -37,6 +36,7 @@ function chicagoRP.DrawOutlinedRoundedBox(borderSize, x, y, w, h, col, thickness
 
     local width, height = w - borderSize * 2, h - borderSize * 2
 
+    surface.SetDrawColor(col.r, col.g, col.b, col.a)
     surface.DrawRect(x, top, thickness, height) -- left
     surface.DrawRect(x + w - thickness, top, thickness, height) -- right
     surface.DrawRect(left, y, width, thickness) -- top
@@ -44,6 +44,7 @@ function chicagoRP.DrawOutlinedRoundedBox(borderSize, x, y, w, h, col, thickness
 
     local cacheName = borderSize .. x .. y .. w .. h .. thickness
     local cache = roundedBoxCache[cacheName]
+
     if !cache then
         cache = {
             { --Top Right
@@ -87,9 +88,15 @@ function chicagoRP.DrawOutlinedRoundedBox(borderSize, x, y, w, h, col, thickness
         roundedBoxCache[cacheName] = cache
     end
 
-    surface.SetTexture(roundedOutlineMat)
+    surface.SetDrawColor(outlinecol.r, outlinecol.g, outlinecol.b, outlinecol.a)
 
-    for k,v in ipairs(cache) do
-        surface.DrawPoly(v)
+    if outlinemat != nil then
+        surface.SetTexture(outlinemat)
+    else
+        surface.SetTexture(roundedOutlineMat)
+    end
+
+    for i = 1, #cache do 
+        surface.DrawPoly(cache[i])
     end
 end

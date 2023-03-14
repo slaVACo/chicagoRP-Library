@@ -20,4 +20,9 @@ function chicagoRP.DrawOutlinedGradientRect(panel, firstcolor, secondcolor, thic
     surface.DrawTexturedRectUV(w - thickness, 0 + thickness, thickness, h - thickness, 1, 0.1, 1, 1) -- right
 end
 
+function chicagoRP.DrawRoundedOutlinedGradientBox(bordersize, x, y, w, h, firstcolor, secondcolor, thickness)
+    chicagoRP.DrawOutlinedRoundedBox(bordersize, x, y, w, h, color_transparent, firstcolor, thickness, gradientLeftMat)
+    chicagoRP.DrawOutlinedRoundedBox(bordersize, x, y, w, h, color_transparent, secondcolor, thickness, gradientRightMat)
+end
+
 print("gradient loaded")
