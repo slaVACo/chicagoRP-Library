@@ -24,5 +24,3 @@ function chicagoRP.DrawRoundedOutlinedGradientBox(bordersize, x, y, w, h, firstc
     chicagoRP.DrawOutlinedRoundedBox(bordersize, x, y, w, h, color_transparent, firstcolor, thickness, gradientLeftMat)
     chicagoRP.DrawOutlinedRoundedBox(bordersize, x, y, w, h, color_transparent, secondcolor, thickness, gradientRightMat)
 end
-
-print("gradient loaded")
