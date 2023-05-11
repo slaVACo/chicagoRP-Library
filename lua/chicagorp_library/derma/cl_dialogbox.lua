@@ -46,7 +46,7 @@ local SecondaryCol = Color(0, 255, 0, 0)
 -- Reinitializes dialog contents (content label, input boxes, button choices)
 function PANEL:RebuildContents()
     -- Delete all the previous VGUI child elements in this panel
-    self:KillChildren()
+    self.primaryPanel:KillChildren()
     self.primaryPanel = vgui.Create("DPanel", self)
     self.primaryPanel:DockMargin(0, 0, 0, 0) -- Outer
     self.primaryPanel:DockPadding(4, 4, 4, 4) -- Inner
@@ -66,6 +66,7 @@ function PANEL:RebuildContents()
         self.label:SetAutoStretchVertical(true)
     end
 
+    self.secondaryPanel:KillChildren()
     self.secondaryPanel = vgui.Create("DPanel", self)
     self.secondaryPanel:DockMargin(0, 0, 0, 0) -- Outer
     self.secondaryPanel:DockPadding(0, 0, 0, 0) -- Inner
