@@ -12,6 +12,7 @@ if CLIENT then
     include("chicagorp_library/drawing/cl_screenscale.lua")
     include("chicagorp_library/hooks/cl_hidehud.lua")
 else
+    AddCSLuaFile("circles.lua")
     AddCSLuaFile("chicagorp_library/derma/cl_dialogbox.lua")
     AddCSLuaFile("chicagorp_library/drawing/cl_blur.lua")
     AddCSLuaFile("chicagorp_library/drawing/cl_fade.lua")
