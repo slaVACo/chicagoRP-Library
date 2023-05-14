@@ -122,6 +122,10 @@ function PANEL:SetText(value)
     self:RebuildContents()
 end
 
+function PANEL:GetAcceptButton()
+    return self.acceptButton
+end
+
 -- The accept button is the choice button that confirms the requested action
 function PANEL:GetAcceptButtonEnabled()
     return self.isAcceptButtonEnabled
@@ -139,6 +143,10 @@ end
 function PANEL:SetAcceptButtonText(value)
     self.acceptButtonText = value
     self:RebuildContents()
+end
+
+function PANEL:GetRejectButton()
+    return self.rejectButton
 end
 
 -- The reject button is the choice button that denies the requested action
