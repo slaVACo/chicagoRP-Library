@@ -11,6 +11,7 @@ if CLIENT then
     include("chicagorp_library/drawing/cl_roundedoutline.lua")
     include("chicagorp_library/drawing/cl_screenscale.lua")
     include("chicagorp_library/hooks/cl_hidehud.lua")
+    include("chicagorp_library/util/cl_theme.lua")
 else
     AddCSLuaFile("circles.lua")
     AddCSLuaFile("chicagorp_library/derma/cl_dialogbox.lua")
@@ -21,6 +22,7 @@ else
     AddCSLuaFile("chicagorp_library/drawing/cl_roundedoutline.lua")
     AddCSLuaFile("chicagorp_library/drawing/cl_screenscale.lua")
     AddCSLuaFile("chicagorp_library/hooks/cl_hidehud.lua")
+    AddCSLuaFile("chicagorp_library/util/cl_theme.lua")
 end
 
 include("chicagorp_library/util/sh_util.lua")
