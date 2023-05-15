@@ -23,5 +23,9 @@ else
     AddCSLuaFile("chicagorp_library/hooks/cl_hidehud.lua")
 end
 
+include("chicagorp_library/util/sh_util.lua")
 include("chicagorp_library/util/sh_uuid.lua")
+include("chicagorp_library/util/sh_vehicles.lua")
+AddCSLuaFile("chicagorp_library/util/sh_util.lua")
 AddCSLuaFile("chicagorp_library/util/sh_uuid.lua")
+AddCSLuaFile("chicagorp_library/util/sh_vehicles.lua")
