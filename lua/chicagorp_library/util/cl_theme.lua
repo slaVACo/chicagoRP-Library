@@ -14,34 +14,27 @@ local secondarygradient_r = CreateClientConVar("chicagoRP_clr_secondarygradient_
 local secondarygradient_g = CreateClientConVar("chicagoRP_clr_secondarygradient_g", 135, true, false, "Changes the (G) color value for the settings GUI's secondary gradient.", 1, 255)
 local secondarygradient_b = CreateClientConVar("chicagoRP_clr_secondarygradient_b", 70, true, false, "Changes the (B) color value for the settings GUI's secondary gradient.", 1, 255)
 
-local primaryclr = nil
-local secondaryclr = nil
-local accentclr = nil
-local primarygradient = nil
-local secondarygradient = nil
-
-local function InvalidateColors()
-	primaryclr = Color(primaryclr_r:GetInt(), primaryclr_g:GetInt(), primaryclr_b:GetInt(), 255)
-	secondaryclr = Color(secondaryclr_r:GetInt(), secondaryclr_g:GetInt(), secondaryclr_b:GetInt(), 255)
-	accentclr = Color(CVaaccentclr_rrAccentRed:GetInt(), accentclr_g:GetInt(), accentclr_b:GetInt(), 220)
-	primarygradient = Color(primarygradient_r:GetInt(), primarygradient_g:GetInt(), primarygradient_b:GetInt(), 180)
-	secondarygradient = Color(secondarygradient_r:GetInt(), secondarygradient_g:GetInt(), secondarygradient_b:GetInt(), 180)
-end
-
-InvalidateColors()
-
 function chicagoRP.GetPrimaryColor()
+	local primaryclr = Color(primaryclr_r:GetInt(), primaryclr_g:GetInt(), primaryclr_b:GetInt(), 255)
+
 	return primaryclr
 end
 
 function chicagoRP.GetSecondaryColor()
+	local secondaryclr = Color(secondaryclr_r:GetInt(), secondaryclr_g:GetInt(), secondaryclr_b:GetInt(), 255)
+
 	return secondaryclr
 end
 
 function chicagoRP.GetAccentColor()
+	local accentclr = Color(CVaaccentclr_rrAccentRed:GetInt(), accentclr_g:GetInt(), accentclr_b:GetInt(), 220)
+
 	return accentclr
 end
 
 function chicagoRP.GetGradientColors()
+	local primarygradient = Color(primarygradient_r:GetInt(), primarygradient_g:GetInt(), primarygradient_b:GetInt(), 180)
+	local secondarygradient = Color(secondarygradient_r:GetInt(), secondarygradient_g:GetInt(), secondarygradient_b:GetInt(), 180)
+
 	return primarygradient, secondarygradient
 end
