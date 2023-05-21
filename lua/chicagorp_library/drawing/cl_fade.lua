@@ -1,12 +1,14 @@
-function chicagoRP.ButtonFade(panel, w, h, clrfrom, clrto, alphafrom, alphato, speed, children)
-    if (children == nil) then children = false end
+function chicagoRP.ButtonFade(panel, clrfrom, clrto, alphafrom, alphato, speed, children)
+    if !IsValid(panel) then return end
+    if children == nil then children = false end
 
+    local w, h = panel:GetSize()
     local hovered = panel:IsHovered()
     local haschild = panel:HasChildren()
     local childhovered = nil
     local buf, step = panel.__hoverBuf or 0, RealFrameTime() * speed
 
-    if haschild and children == true then
+    if haschild and children then
         childhovered = panel:GetChild(0):IsHovered()
     end
 
@@ -24,15 +26,16 @@ function chicagoRP.ButtonFade(panel, w, h, clrfrom, clrto, alphafrom, alphato, s
     surface.DrawRect(0, 0, w, h)
 end
 
-function chicagoRP.OutlineFade(panel, w, h, alphafrom, alphato, color1, color2, speed, children)
-    if (children == nil) then children = false end
+function chicagoRP.OutlineFade(panel, alphato, color1, color2, speed, children)
+    if !IsValid(panel) then return end
+    if children == nil then children = false end
 
     local hovered = panel:IsHovered()
     local haschild = panel:HasChildren()
     local childhovered = nil
     local Outlinebuf, Outlinestep = panel.__hoverOutlineBuf or 0, RealFrameTime() * speed
 
-    if haschild and children == true then
+    if haschild and children then
         childhovered = panel:GetChild(0):IsHovered()
     end
 
@@ -44,7 +47,7 @@ function chicagoRP.OutlineFade(panel, w, h, alphafrom, alphato, color1, color2, 
 
     panel.__hoverOutlineBuf = Outlinebuf
     Outlinebuf = math.EaseInOut(Outlinebuf, 0.5, 0.5)
-    local alphaOutline = Lerp(Outlinebuf, alphafrom, alphato)
+    local alphaOutline = Lerp(Outlinebuf, 0, alphato)
 
     color1.a = alphaOutline
     color2.a = alphaOutline
