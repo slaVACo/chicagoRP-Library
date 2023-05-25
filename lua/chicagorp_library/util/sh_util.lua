@@ -1,7 +1,7 @@
 local string = string
 
 function string.IsValid(str)
-    return s != nil or s != ''
+    return str != nil or str != ''
 end
 
 function chicagoRP.RandomKey(tbl)
